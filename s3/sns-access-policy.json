@@ -1,0 +1,32 @@
+{
+    "Statement": [
+      {
+        "Sid": "__default_statement_ID",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "*"
+        },
+        "Action": [
+          "SNS:Publish",
+          "SNS:RemovePermission",
+          "SNS:SetTopicAttributes",
+          "SNS:DeleteTopic",
+          "SNS:ListSubscriptionsByTopic",
+          "SNS:GetTopicAttributes",
+          "SNS:Receive",
+          "SNS:AddPermission",
+          "SNS:Subscribe"
+        ],
+        "Resource": "arn:aws:sns:us-west-2:421199631275:ec2-alarm"
+      },
+      {
+        "Sid": "s3",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "s3.amazonaws.com"
+        },
+        "Action": "SNS:Publish",
+        "Resource": "arn:aws:sns:us-west-2:421199631275:ec2-alarm"
+      }
+    ]
+  }

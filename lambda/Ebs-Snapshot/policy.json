@@ -1,0 +1,27 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+     {
+      "Action": [
+       "ec2:Describe*",
+       "ec2:CreateSnapshot",
+       "lambda:GetAlias",
+       "lambda:GetEventSourceMapping",
+       "lambda:GetFunction",
+       "lambda:GetFunctionConfiguration",
+       "lambda:GetPolicy",
+       "lambda:InvokeFunction",
+       "lambda:ListAliases",
+       "lambda:ListEventSourceMappings",
+       "lambda:ListFunctions",
+       "lambda:ListVersionsByFunction",
+       "logs:CreateLogGroup",
+       "logs:CreateLogStream",
+       "logs:PutLogEvents"
+      ],
+      "Resource": "*",
+      "Effect": "Allow"
+     }
+    ]
+   }
+   

@@ -1,0 +1,24 @@
+---
+schemaVersion: '2.2'
+description: Sample YAML template to To Send Logs from ec2 Instance To S3 Bucket    
+parameters: 
+  hookname:
+    type: "String"
+    description: "Hook Name"
+    default: ""
+  asgname:
+    type: "String"
+    description: "Asg Name"
+    default: ""
+  instanceid:
+    type: "String"
+    description: "instance name"
+    default: ""    
+mainSteps:
+- action: aws:runShellScript
+  name: SendLogsToS3
+  inputs:
+    runCommand:
+    - '#!/bin/bash'
+    - 'for i in `find /var/log -maxdepth 1 -type f -name '*.log'`; do echo $i; aws s3 cp $i s3://devopsflow101-logs/; done'
+    - 'aws autoscaling complete-lifecycle-action --lifecycle-action-result CONTINUE --instance-id {{ instanceid }} --lifecycle-hook-name {{ hookname }} --auto-scaling-group-name {{ asgname }}'

@@ -1,0 +1,15 @@
+// This policy to allow ec2 to complete lifecycleAction and publish to sns topic
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": [
+                "autoscaling:CompleteLifecycleAction",
+                "sns:Publish"
+            ],
+            "Effect": "Allow",
+            "Resource": "*"
+        }
+    ]
+}
